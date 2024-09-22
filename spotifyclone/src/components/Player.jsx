@@ -17,10 +17,10 @@ const Player = () => {
           <div className='flex gap-4'>
             <img className='w-4 cursor-pointer' src={assets.shuffle_icon} alt="" />
             <img className='w-4 cursor-pointer' src={assets.prev_icon} alt="" />
-            <img className='w-4 cursor-pointer' src={assets.play_icon} alt="" />
-            <img className='w-4 cursor-pointer' src={assets.pause_icon} alt="" />
+            <img onClick={play} className='w-4 cursor-pointer' src={assets.play_icon} alt="" />
+            <img onClick={pause} className='w-4 cursor-pointer' src={assets.pause_icon} alt="" />
             <img className='w-4 cursor-pointer' src={assets.next_icon} alt="" />
-            <img className='w-4 cursor-pointer' src={assets.loop_icon_icon} alt="" />
+            <img className='w-4 cursor-pointer' src={assets.loop_icon} alt="" />
           </div>
           <div className='flex items-center gap-5'>
             <p>1:06</p>
@@ -47,3 +47,4 @@ const Player = () => {
 }
 
 export default Player
+

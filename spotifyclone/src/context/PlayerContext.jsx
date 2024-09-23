@@ -38,6 +38,22 @@ const PlayerContextProvider = (props) => {
         setplayerstatus(true);
     }
 
+    const previous = async () => {
+        if(track.id > 0){
+            await settrack(songsData[track.id-1]);
+            await audioref.current.play();
+            setplayerstatus(true);
+        }
+    }
+
+    const next = async () => {
+        if(track.id < songsData.length-1){
+            await settrack(songsData[track.id+1]);
+            await audioref.current.play();
+            setplayerstatus(true);
+        }
+    }
+
     useEffect(() => {
         setTimeout(() => {
             
@@ -65,8 +81,8 @@ const PlayerContextProvider = (props) => {
         playerstatus,setplayerstatus,
         time,settime,
         play,pause,
-        playwithid
-
+        playwithid,
+        previous,next
     }
 
     return(

@@ -3,7 +3,7 @@ import { assets } from '../assets/assets';
 import { PlayerContext } from '../context/PlayerContext';
 
 const Player = () => {
-  const { track, seekbar, seekbg, play, pause, time,previous,next } = useContext(PlayerContext);
+  const { track, seekbar, seekbg, play, pause, time,previous,next,seeksong } = useContext(PlayerContext);
   const [isPlaying, setIsPlaying] = useState(false); // Local state to track play/pause status
 
   const handlePlayPause = () => {
@@ -42,7 +42,7 @@ const Player = () => {
 
         <div className='flex items-center gap-5'>
           <p>{time.currenttime.minute}:{time.currenttime.second < 10 ? `0${time.currenttime.second}` : time.currenttime.second}</p>
-          <div ref={seekbg} className='w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer'>
+          <div ref={seekbg} onClick={seeksong} className='w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer'>
             <hr ref={seekbar} className='h-1 border-none w-0 bg-green-800 rounded-full' />
           </div>
           <p>{time.totaltime.minute}:{time.totaltime.second < 10 ? `0${time.totaltime.second}` : time.totaltime.second}</p>
